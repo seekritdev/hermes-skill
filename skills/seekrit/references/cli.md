@@ -20,9 +20,10 @@ A **service token** (`skt_...`) is bound to **one app environment**. That is the
 security ceiling, and it is why a reference can never name an arbitrary
 `app/env` pair — there is nothing on the read path that could resolve one.
 
-`seekrit.json` in a project records the org, app, and environment slugs so
-commands need no flags. It holds **no values** and is safe to commit. Create it
-with `seekrit init`.
+`seekrit.json` in a project records the org and app slugs — never an
+environment, which is the token's to choose at runtime. Between the two, a
+command needs no target flags at all. It holds **no values** and is safe to
+commit. Create it with `seekrit init --org <org> --app <app>`.
 
 ## Authentication
 
