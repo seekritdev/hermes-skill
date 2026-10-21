@@ -23,7 +23,10 @@ security ceiling, and it is why a reference can never name an arbitrary
 `seekrit.json` in a project records the org and app slugs — never an
 environment, which is the token's to choose at runtime. Between the two, a
 command needs no target flags at all. It holds **no values** and is safe to
-commit. Create it with `seekrit init --org <org> --app <app>`.
+commit. Create it with `seekrit init` (which also creates the app and a
+`development` environment if the project has none — and signs up first if the
+machine has no credential at all) or, for an existing org and app,
+`seekrit init --org <org> --app <app>`.
 
 ## Authentication
 
@@ -31,6 +34,7 @@ commit. Create it with `seekrit init --org <org> --app <app>`.
 | --- | --- |
 | `seekrit whoami` | Who you are and how you authenticated. First thing to run. |
 | `seekrit login` | Browser-approved login, for a human at a terminal. |
+| `seekrit init --org-name "<the real project>" --yes` | No credential at all: signs up, saves a machine credential, and sets the project up in one go. |
 | `seekrit login --client-id <id> --client-secret <secret>` | Machine credentials. Auto-mint an admin token, so one credential drives the CLI and both MCP servers. |
 | `SEEKRIT_TOKEN=skt_...` | A service token from the environment. The normal case for an agent. |
 
@@ -70,7 +74,7 @@ one value.
 
 | Command | Notes |
 | --- | --- |
-| `seekrit init --org <org> --app <app>` | Write `seekrit.json` for this project. |
+| `seekrit init [--org <org>] [--app <app>]` | Set the project up: sign up if there is no credential, create the app and a `development` environment if missing, write `seekrit.json`. |
 | `seekrit app create --name <n> --slug <s>` / `seekrit app list` | Applications. `--slug` is permanent. |
 | `seekrit env create --app <a> --name <n> --slug <s>` | Environments. Generates the data key locally, so only ciphertext leaves the machine. |
 | `seekrit group create --name <n> --slug <s>` / `seekrit group env ...` | Shared config composed into environments. |
