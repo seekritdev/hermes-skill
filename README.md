@@ -1,9 +1,9 @@
 # seekrit — Hermes Agent skills tap
 
 A [Hermes Agent](https://hermes-agent.nousresearch.com) skills tap for
-[seekrit](https://seekrit.dev): an end-to-end encrypted secrets manager whose
-server only ever holds ciphertext. Add the tap once, then install the skills
-you want.
+[seekrit](https://seekrit.dev), a zero-knowledge secrets manager and
+credential broker for AI agents, whose server only ever holds ciphertext. Add
+the tap once, then install the skills you want.
 
 ```bash
 hermes skills tap add seekritdev/hermes-skill
